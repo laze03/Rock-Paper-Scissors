@@ -1,13 +1,14 @@
 import "../App.css";
-import { Link } from "react-router-dom";
 import Header from "../components/Header";
 import Select from "../components/Select";
 import ButtonRules from "../components/ButtonRules";
+import { useContext } from "react";
+import { Context } from "../Context";
 
-function Home(props) {
+function Home() {
   return (
     <div className="home">
-      <Header score={props.count} />
+      <Header />
       <Select />
       <ButtonRules />
     </div>

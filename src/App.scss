@@ -55,6 +55,10 @@ body {
     border: 3px solid $border;
     border-radius: 1rem;
 
+    img {
+      height: 125px;
+    }
+
     .score {
       display: flex;
       align-items: center;
@@ -80,55 +84,94 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+  }
 
-    .icon {
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border: 15px solid;
+    border-radius: 50%;
+    padding: 2rem;
+    background-color: white;
+  }
+
+  .scissors {
+    top: 0;
+    transform: translateY(-50%);
+    border-color: $orange-dark;
+  }
+
+  .paper {
+    top: 0;
+    right: 0;
+    transform: translate(50%, 50%);
+    border-color: $blue-dark;
+  }
+
+  .rock {
+    top: 60%;
+    transform: translateY(50%);
+    right: 0;
+    border-color: $red-dark;
+  }
+
+  .lizard {
+    top: 60%;
+    transform: translateY(50%);
+    left: 0;
+    border-color: $purple-dark;
+  }
+
+  .spock {
+    top: 0;
+    left: 0;
+    transform: translate(-50%, 50%);
+    border-color: $cyan-dark;
+
+    img {
+      transform: translateX(4px);
+    }
+  }
+
+  .battle {
+    margin: 15rem auto 0;
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    .choices {
       display: flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      position: absolute;
-      width: 120px;
-      height: 120px;
-      border: 15px solid;
-      border-radius: 50%;
-      padding: 2rem;
-      background-color: white;
+
+      .choice {
+        width: 300px;
+
+        .icon {
+          position: static;
+          transform: none;
+          margin: 3rem auto;
+        }
+      }
     }
+    .decision {
+      h1 {
+        margin-bottom: 2rem;
+      }
 
-    .scissors {
-      top: 0;
-      transform: translateY(-50%);
-      border-color: $orange-dark;
-    }
-
-    .paper {
-      top: 0;
-      right: 0;
-      transform: translate(50%, 50%);
-      border-color: $blue-dark;
-    }
-
-    .rock {
-      top: 60%;
-      transform: translateY(50%);
-      right: 0;
-      border-color: $red-dark;
-    }
-
-    .lizard {
-      top: 60%;
-      transform: translateY(50%);
-      left: 0;
-      border-color: $purple-dark;
-    }
-
-    .spock {
-      top: 0;
-      left: 0;
-      transform: translate(-50%, 50%);
-      border-color: $blue-dark;
-
-      img {
-        transform: translateX(4px);
+      a {
+        color: $score-n;
+        background-color: white;
+        padding: 1rem 3rem;
+        border-radius: 5px;
+        letter-spacing: 3px;
       }
     }
   }
