@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+
+$orange-dark: hsl(39, 89%, 49%);
+$orange-light: hsl(40, 84%, 53%);
+$blue-dark: hsl(230, 89%, 62%);
+$blue-light: hsl(230, 89%, 65%);
+$red-dark: hsl(349, 71%, 52%);
+$red-light: hsl(349, 70%, 56%);
+$purple-dark: hsl(261, 73%, 60%);
+$purple-light: hsl(261, 72%, 63%);
+$cyan-dark: hsl(189, 59%, 53%);
+$cyan-light: hsl(189, 58%, 57%);
+
+$score-n: hsl(229, 25%, 31%);
+$score: hsl(229, 64%, 46%);
+$border: hsl(217, 16%, 45%);
+
+$background-left: hsl(214, 47%, 23%);
+$background-right: hsl(237, 49%, 15%);
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+#root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 5vh 5vw;
+  font-size: 1.6rem;
+  color: white;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-image: linear-gradient(
+    to right bottom,
+    $background-left,
+    $background-right
+  );
+
+  .header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+    border: 3px solid $border;
+    border-radius: 1rem;
+
+    .score {
+      display: flex;
+      align-items: center;
+      flex-direction: column;
+      background-color: white;
+      color: $score-n;
+      padding: 2rem 4rem;
+      border-radius: 1rem;
+
+      p {
+        color: $score;
+        letter-spacing: 3px;
+      }
+    }
+  }
+
+  .select {
+    width: 330px;
+    height: 330px;
+    background-image: url("images/bg-pentagon-1.svg");
+    position: relative;
+    margin: 10vh auto 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .icon {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border: 15px solid;
+      border-radius: 50%;
+      padding: 2rem;
+      background-color: white;
+    }
+
+    .scissors {
+      top: 0;
+      transform: translateY(-50%);
+      border-color: $orange-dark;
+    }
+
+    .paper {
+      top: 0;
+      right: 0;
+      transform: translate(50%, 50%);
+      border-color: $blue-dark;
+    }
+
+    .rock {
+      top: 60%;
+      transform: translateY(50%);
+      right: 0;
+      border-color: $red-dark;
+    }
+
+    .lizard {
+      top: 60%;
+      transform: translateY(50%);
+      left: 0;
+      border-color: $purple-dark;
+    }
+
+    .spock {
+      top: 0;
+      left: 0;
+      transform: translate(-50%, 50%);
+      border-color: $blue-dark;
+
+      img {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  .rules {
+    button {
+      position: absolute;
+      bottom: 5vh;
+      right: 5vw;
+      background-color: transparent;
+      border: 2px solid white;
+      letter-spacing: 3px;
+      padding: 1rem 3rem;
+    }
+  }
+}

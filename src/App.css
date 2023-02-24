@@ -1,0 +1,112 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  box-sizing: border-box;
+}
+
+#root {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  padding: 5vh 5vw;
+  font-size: 1.6rem;
+  color: white;
+  font-family: "Barlow Semi Condensed", sans-serif;
+  background-image: linear-gradient(to right bottom, hsl(214deg, 47%, 23%), hsl(237deg, 49%, 15%));
+}
+#root .header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  border: 3px solid hsl(217deg, 16%, 45%);
+  border-radius: 1rem;
+}
+#root .header .score {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: white;
+  color: hsl(229deg, 25%, 31%);
+  padding: 2rem 4rem;
+  border-radius: 1rem;
+}
+#root .header .score p {
+  color: hsl(229deg, 64%, 46%);
+  letter-spacing: 3px;
+}
+#root .select {
+  width: 330px;
+  height: 330px;
+  background-image: url("images/bg-pentagon-1.svg");
+  position: relative;
+  margin: 10vh auto 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#root .select .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  width: 120px;
+  height: 120px;
+  border: 15px solid;
+  border-radius: 50%;
+  padding: 2rem;
+  background-color: white;
+}
+#root .select .scissors {
+  top: 0;
+  transform: translateY(-50%);
+  border-color: hsl(39deg, 89%, 49%);
+}
+#root .select .paper {
+  top: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+  border-color: hsl(230deg, 89%, 62%);
+}
+#root .select .rock {
+  top: 60%;
+  transform: translateY(50%);
+  right: 0;
+  border-color: hsl(349deg, 71%, 52%);
+}
+#root .select .lizard {
+  top: 60%;
+  transform: translateY(50%);
+  left: 0;
+  border-color: hsl(261deg, 73%, 60%);
+}
+#root .select .spock {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
+  border-color: hsl(230deg, 89%, 62%);
+}
+#root .select .spock img {
+  transform: translateX(4px);
+}
+#root .rules button {
+  position: absolute;
+  bottom: 5vh;
+  right: 5vw;
+  background-color: transparent;
+  border: 2px solid white;
+  letter-spacing: 3px;
+  padding: 1rem 3rem;
+}
+
+/*# sourceMappingURL=App.css.map */
