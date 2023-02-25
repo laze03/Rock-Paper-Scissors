@@ -102,35 +102,35 @@ body {
   .scissors {
     top: 0;
     transform: translateY(-50%);
-    border-color: $orange-dark;
+    border-color: $orange-dark !important;
   }
 
   .paper {
     top: 0;
     right: 0;
     transform: translate(50%, 50%);
-    border-color: $blue-dark;
+    border-color: $blue-dark !important;
   }
 
   .rock {
     top: 60%;
     transform: translateY(50%);
     right: 0;
-    border-color: $red-dark;
+    border-color: $red-dark !important;
   }
 
   .lizard {
     top: 60%;
     transform: translateY(50%);
     left: 0;
-    border-color: $purple-dark;
+    border-color: $purple-dark !important;
   }
 
   .spock {
     top: 0;
     left: 0;
     transform: translate(-50%, 50%);
-    border-color: $cyan-dark;
+    border-color: $cyan-dark !important;
 
     img {
       transform: translateX(4px);
@@ -153,11 +153,24 @@ body {
 
       .choice {
         width: 300px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
 
-        .icon {
-          position: static;
+        p {
+          margin-bottom: 2rem;
+        }
+
+        .imgIcon {
+          width: 120px;
+          height: 120px;
+          border: 15px solid;
+          border-radius: 50%;
+          padding: 2rem;
+          background-color: white;
           transform: none;
-          margin: 3rem auto;
+          margin-bottom: 5rem;
         }
       }
     }

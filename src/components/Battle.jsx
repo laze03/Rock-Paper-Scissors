@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Context } from "../Context";
 
 import "../App.css";
@@ -9,16 +9,18 @@ import rock from "../images/icon-rock.svg";
 import lizard from "../images/icon-lizard.svg";
 import spock from "../images/icon-spock.svg";
 
+const l = ["scissors", "paper", "rock", "lizard", "spock"];
+
 export default function Battle() {
   const { score, setScore, choice } = useContext(Context);
 
-  const l = ["scissors", " paper", "rock", "lizard", "spock"];
-
-  const houseChoice = l[Math.floor(Math.random() * 5)];
+  const [houseChoice, setHouseChoice] = useState(
+    l[Math.floor(Math.random() * 5)]
+  );
 
   const HouseChoice = function () {
     return (
-      <img className={houseChoice + " icon"} src={eval(houseChoice)}></img>
+      <img className={houseChoice + " imgIcon"} src={eval(houseChoice)}></img>
     );
   };
 
@@ -40,7 +42,7 @@ export default function Battle() {
       return "LOSE";
     }
   };
-  const updateScore = function (choice, setChoice) {
+  const updateScore = function (choice, houseChoice) {
     if (
       (choice == "scissors") &
         (houseChoice == "paper" || houseChoice == "lizard") ||
@@ -57,12 +59,11 @@ export default function Battle() {
     } else {
       setScore(score - 1);
     }
+    return houseChoice;
   };
 
   useEffect(() => {
-    console.log(choice);
-    console.log(houseChoice);
-    updateScore(choice, houseChoice);
+    setHouseChoice(updateScore(choice, houseChoice));
   }, []);
 
   return (
@@ -70,7 +71,7 @@ export default function Battle() {
       <div className="choices">
         <div className="myChoice choice">
           <p>YOU PICKED</p>
-          <img className={choice + " icon"} src={eval(choice)}></img>
+          <img className={choice + " imgIcon"} src={eval(choice)}></img>
         </div>
         <div className="houseChoice choice">
           <p>THE HOUSE PICKED</p>

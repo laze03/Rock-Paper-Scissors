@@ -73,31 +73,31 @@ body {
 #root .scissors {
   top: 0;
   transform: translateY(-50%);
-  border-color: hsl(39deg, 89%, 49%);
+  border-color: hsl(39deg, 89%, 49%) !important;
 }
 #root .paper {
   top: 0;
   right: 0;
   transform: translate(50%, 50%);
-  border-color: hsl(230deg, 89%, 62%);
+  border-color: hsl(230deg, 89%, 62%) !important;
 }
 #root .rock {
   top: 60%;
   transform: translateY(50%);
   right: 0;
-  border-color: hsl(349deg, 71%, 52%);
+  border-color: hsl(349deg, 71%, 52%) !important;
 }
 #root .lizard {
   top: 60%;
   transform: translateY(50%);
   left: 0;
-  border-color: hsl(261deg, 73%, 60%);
+  border-color: hsl(261deg, 73%, 60%) !important;
 }
 #root .spock {
   top: 0;
   left: 0;
   transform: translate(-50%, 50%);
-  border-color: hsl(189deg, 59%, 53%);
+  border-color: hsl(189deg, 59%, 53%) !important;
 }
 #root .spock img {
   transform: translateX(4px);
@@ -118,11 +118,23 @@ body {
 }
 #root .battle .choices .choice {
   width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
-#root .battle .choices .choice .icon {
-  position: static;
+#root .battle .choices .choice p {
+  margin-bottom: 2rem;
+}
+#root .battle .choices .choice .imgIcon {
+  width: 120px;
+  height: 120px;
+  border: 15px solid;
+  border-radius: 50%;
+  padding: 2rem;
+  background-color: white;
   transform: none;
-  margin: 3rem auto;
+  margin-bottom: 5rem;
 }
 #root .battle .decision h1 {
   margin-bottom: 2rem;
