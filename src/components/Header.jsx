@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import "../App.css";
 import { Context } from "../Context";
+import "../App.css";
 import logo from "../images/logo-bonus.svg";
 
 export default function Header() {

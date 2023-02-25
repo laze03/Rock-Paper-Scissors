@@ -19,9 +19,7 @@ export default function Battle() {
   );
 
   const HouseChoice = function () {
-    return (
-      <img className={houseChoice + " imgIcon"} src={eval(houseChoice)}></img>
-    );
+    return <img className={houseChoice} src={eval(houseChoice)}></img>;
   };
 
   const result = function (choice, houseChoice) {
@@ -71,11 +69,15 @@ export default function Battle() {
       <div className="choices">
         <div className="myChoice choice">
           <p>YOU PICKED</p>
-          <img className={choice + " imgIcon"} src={eval(choice)}></img>
+          <div className={choice + " imgIcon"}>
+            <img className="" src={eval(choice)}></img>
+          </div>
         </div>
         <div className="houseChoice choice">
           <p>THE HOUSE PICKED</p>
-          <HouseChoice />
+          <div className={houseChoice + " imgIcon"}>
+            <HouseChoice />
+          </div>
         </div>
       </div>
       <div className="decision">

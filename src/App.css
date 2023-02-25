@@ -33,7 +33,7 @@ body {
   border-radius: 1rem;
 }
 #root .header img {
-  height: 125px;
+  height: 12.5rem;
 }
 #root .header .score {
   display: flex;
@@ -49,62 +49,71 @@ body {
   letter-spacing: 3px;
 }
 #root .select {
-  width: 330px;
-  height: 330px;
+  width: 33rem;
+  height: 33rem;
   background-image: url("images/bg-pentagon-1.svg");
   position: relative;
-  margin: 10vh auto 0;
+  margin: 20vh auto 0;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+#root .select .scissors {
+  top: 0;
+  transform: translateY(-50%);
+}
+#root .select .paper {
+  top: 0;
+  right: 0;
+  transform: translate(50%, 50%);
+}
+#root .select .rock {
+  top: 60%;
+  transform: translateY(50%);
+  right: 0;
+}
+#root .select .lizard {
+  top: 60%;
+  transform: translateY(50%);
+  left: 0;
+}
+#root .select .spock {
+  top: 0;
+  left: 0;
+  transform: translate(-50%, 50%);
 }
 #root .icon {
   display: flex;
   align-items: center;
   justify-content: center;
   position: absolute;
-  width: 120px;
-  height: 120px;
-  border: 15px solid;
+  width: 12rem;
+  height: 12rem;
+  border: 1rem solid;
   border-radius: 50%;
   padding: 2rem;
   background-color: white;
 }
 #root .scissors {
-  top: 0;
-  transform: translateY(-50%);
   border-color: hsl(39deg, 89%, 49%) !important;
 }
 #root .paper {
-  top: 0;
-  right: 0;
-  transform: translate(50%, 50%);
   border-color: hsl(230deg, 89%, 62%) !important;
 }
 #root .rock {
-  top: 60%;
-  transform: translateY(50%);
-  right: 0;
   border-color: hsl(349deg, 71%, 52%) !important;
 }
 #root .lizard {
-  top: 60%;
-  transform: translateY(50%);
-  left: 0;
   border-color: hsl(261deg, 73%, 60%) !important;
 }
 #root .spock {
-  top: 0;
-  left: 0;
-  transform: translate(-50%, 50%);
   border-color: hsl(189deg, 59%, 53%) !important;
 }
 #root .spock img {
   transform: translateX(4px);
 }
 #root .battle {
-  margin: 15rem auto 0;
-  width: 600px;
+  margin: 20vh auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -112,12 +121,13 @@ body {
   text-align: center;
 }
 #root .battle .choices {
+  width: 60rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
 }
 #root .battle .choices .choice {
-  width: 300px;
+  width: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -127,14 +137,20 @@ body {
   margin-bottom: 2rem;
 }
 #root .battle .choices .choice .imgIcon {
-  width: 120px;
-  height: 120px;
-  border: 15px solid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 12rem;
+  height: 12rem;
+  border: 1rem solid;
   border-radius: 50%;
   padding: 2rem;
   background-color: white;
-  transform: none;
+  transform: none !important;
   margin-bottom: 5rem;
+}
+#root .battle .choices .choice .spock {
+  transform: translateX(4px) !important;
 }
 #root .battle .decision h1 {
   margin-bottom: 2rem;
@@ -146,6 +162,54 @@ body {
   border-radius: 5px;
   letter-spacing: 3px;
 }
+#root .modalBackground {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+#root .modalBackground .modal {
+  border-radius: 5px;
+  background-color: white;
+  width: 450px;
+  padding: 0 4rem 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+#root .modalBackground .modal > * {
+  width: 100%;
+}
+#root .modalBackground .modal .header {
+  display: flex;
+  justify-content: space-between;
+  border: none;
+  padding: 3rem 0;
+}
+#root .modalBackground .modal .header h1 {
+  color: hsl(229deg, 25%, 31%);
+}
+#root .modalBackground .modal .header img {
+  height: 20px;
+  width: 20px;
+}
+#root .modalBackground .modal button {
+  background-color: white;
+  padding: 0;
+}
+#root .modalBackground .modal button:hover, #root .modalBackground .modal button:focus, #root .modalBackground .modal button:active {
+  border: none;
+}
+#root .modalBackground .modal .down {
+  display: none;
+}
 #root .rules button {
   position: absolute;
   bottom: 5vh;
@@ -154,6 +218,32 @@ body {
   border: 2px solid white;
   letter-spacing: 3px;
   padding: 1rem 3rem;
+}
+
+@media screen and (max-width: 500px) {
+  html {
+    font-size: 50%;
+  }
+  .select {
+    background-image: url("images/bg-pentagon.svg") !important;
+  }
+  .choices {
+    max-width: 45rem !important;
+  }
+  .modal {
+    width: 100vw;
+    height: 100vh;
+    justify-content: space-around !important;
+  }
+  .modal .header {
+    justify-content: center !important;
+  }
+  .modal .header button {
+    display: none;
+  }
+  .modal .down {
+    display: contents !important;
+  }
 }
 
 /*# sourceMappingURL=App.css.map */
