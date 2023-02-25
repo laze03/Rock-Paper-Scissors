@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Context } from "../Context";
 
 import "../App.css";
@@ -14,22 +14,56 @@ export default function Battle() {
 
   const l = ["scissors", " paper", "rock", "lizard", "spock"];
 
-  const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
+  const houseChoice = l[Math.floor(Math.random() * 5)];
 
   const HouseChoice = function () {
-    let houseChoice = l[Math.floor(Math.random() * 5)];
     return (
       <img className={houseChoice + " icon"} src={eval(houseChoice)}></img>
     );
   };
 
   const result = function (choice, houseChoice) {
-    return "WIN";
+    if (
+      (choice == "scissors") &
+        (houseChoice == "paper" || houseChoice == "lizard") ||
+      (choice == "paper") & (houseChoice == "rock" || houseChoice == "spock") ||
+      (choice == "rock") &
+        (houseChoice == "lizard" || houseChoice == "scissors") ||
+      (choice == "lizard") &
+        (houseChoice == "spock" || houseChoice == "paper") ||
+      (choice == "spock") & (houseChoice == "scissors" || houseChoice == "rock")
+    ) {
+      return "WIN";
+    } else if (choice == houseChoice) {
+      return "DRAW";
+    } else {
+      return "LOSE";
+    }
+  };
+  const updateScore = function (choice, setChoice) {
+    if (
+      (choice == "scissors") &
+        (houseChoice == "paper" || houseChoice == "lizard") ||
+      (choice == "paper") & (houseChoice == "rock" || houseChoice == "spock") ||
+      (choice == "rock") &
+        (houseChoice == "lizard" || houseChoice == "scissors") ||
+      (choice == "lizard") &
+        (houseChoice == "spock" || houseChoice == "paper") ||
+      (choice == "spock") & (houseChoice == "scissors" || houseChoice == "rock")
+    ) {
+      setScore(score + 1);
+    } else if (choice == houseChoice) {
+      setScore(score);
+    } else {
+      setScore(score - 1);
+    }
   };
 
-  const handleClick = function () {
-    setScore(score + 1);
-  };
+  useEffect(() => {
+    console.log(choice);
+    console.log(houseChoice);
+    updateScore(choice, houseChoice);
+  }, []);
 
   return (
     <div className=" battle">
@@ -44,7 +78,7 @@ export default function Battle() {
         </div>
       </div>
       <div className="decision">
-        <h1>{"YOU " + result()}</h1>
+        <h1>{"YOU " + result(choice, houseChoice)}</h1>
         <Link to="/Rock-Paper-Scissors">PLAY AGAIN</Link>
       </div>
     </div>
